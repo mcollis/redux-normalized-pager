@@ -13,7 +13,11 @@ before_script:
 script:
   - npm test
 after_success:
-  - npm run semantic-release
+  - npm run semantic-release -- pre
+  - npm run clean
+  - npm run build
+  - npm publish
+  - npm run semantic-release -- post
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
