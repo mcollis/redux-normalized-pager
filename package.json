@@ -48,7 +48,7 @@
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "prepare": "npm run clean && npm run build",
     "check-coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95",
-    "report-coverage": "cat ./coverage/coverage-final.json | codecov",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
     "test": "cross-env BABEL_ENV=test NODE_ENV=test nyc mocha --recursive ./src/**/*.spec.js",
     "semantic-release": "semantic-release pre && npm run clean && npm run build && npm publish && semantic-release post"
   },

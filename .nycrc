@@ -5,8 +5,7 @@
   ],
   "reporter": [
     "lcov",
-    "text",
-    "json"
+    "text"
   ],
   "sourceMap": false,
   "instrument": false
