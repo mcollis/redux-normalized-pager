@@ -15,11 +15,7 @@ script:
   - npm run check-coverage
 after_success:
   - npm run report-coverage
-  - npm run semantic-release -- pre
-  - npm run clean
-  - npm run build
-  - npm publish
-  - npm run semantic-release -- post
+  - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
