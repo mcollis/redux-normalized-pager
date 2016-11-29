@@ -7,7 +7,7 @@ const meta = { skip: 0, take: 10 }
 
 describe('Pagination Reducer', () => {
     it('should return existing state by default', () => {
-        expect(reducer({}, { type: 'TEST_PAGER' })).toEqual({});
+        expect(reducer()).toEqual({});
         expect(reducer({}, { type: 'TEST_PAGER', pager: {} })).toEqual({ })
     })
     it('should set isLoading with no result', () => {

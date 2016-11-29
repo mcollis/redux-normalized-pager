@@ -5,7 +5,7 @@ export const INSERT_MODE = {
     END: 'END'
 }
 
-const reducer = (state, {pager, result}) => {
+const reducer = (state = {}, {pager, result} = {}) => {
     if (pager) {
         const { name, id, meta = {}, mode = INSERT_MODE.REPLACE } = pager;
         if (name !== undefined && id !== undefined) {
