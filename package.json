@@ -49,9 +49,10 @@
     "build:umd.min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack ./src/index.js ./dist/redux-normalized-pager.min.js",
     "prebuild": "npm run clean",
     "build": "npm-run-all --parallel build:*",
+    "coverage": "cross-env BABEL_ENV=test NODE_ENV=test nyc npm test",
     "check-coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "test": "cross-env BABEL_ENV=test NODE_ENV=test nyc mocha --recursive ./src/**/*.spec.js",
+    "test": "mocha --compilers js:babel-register --recursive ./src/**/*.spec.js",
     "semantic-release": "semantic-release pre && npm run build && npm publish && semantic-release post"
   },
   "repository": {
@@ -72,11 +73,8 @@
   },
   "homepage": "https://github.com/mcollis/redux-normalized-pager#readme",
   "nyc": {
-    "include": [
-      "src/**/*.js"
-    ],
     "exclude": [
-      "src/**/*.spec.js"
+      "**/*.spec.js"
     ]
   },
   "config": {
@@ -84,8 +82,8 @@
       "path": "cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm test && npm run check-coverage",
-      "pre-push": "npm test && npm run check-converage",
+      "pre-commit": "npm run coverage && npm run check-coverage",
+      "pre-push": "npm run coverage && npm run check-coverage",
       "commit-msg": "validate-commit-msg"
     }
   }
