@@ -36,6 +36,7 @@
     "nyc": "10.0.0",
     "rimraf": "2.5.4",
     "semantic-release": "^6.3.2",
+    "validate-commit-msg": "2.8.2",
     "webpack": "1.13.3",
     "webpack-dev-server": "1.16.2"
   },
@@ -83,7 +84,9 @@
       "path": "cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm test && npm run check-coverage"
+      "pre-commit": "npm test && npm run check-coverage",
+      "pre-push": "npm test && npm run check-converage",
+      "commit-msg": "validate-commit-msg"
     }
   }
 }
