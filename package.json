@@ -11,9 +11,6 @@
     "lib",
     "README.md"
   ],
-  "peerDependencies": {
-    "reselect": "2.5.4"
-  },
   "devDependencies": {
     "babel-cli": "6.18.0",
     "babel-core": "6.18.2",
@@ -96,5 +93,8 @@
       "pre-push": "npm run validate",
       "commit-msg": "validate-commit-msg"
     }
+  },
+  "dependencies": {
+    "reselect": "2.5.4"
   }
 }
