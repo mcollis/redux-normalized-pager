@@ -128,4 +128,34 @@ describe('Pagination Reducer', () => {
       }
     });
   });
+  it('should turn off loading if error', () => {
+    const prevState = {
+      articles: {
+        0: {
+          isLoading: true,
+          mode: INSERT_MODE.START
+        }
+      }
+    };
+    deepFreeze(prevState);
+    const result = reducer(prevState, {
+      type: 'TEST_PAGER',
+      pager: {
+        name: 'articles',
+        id: '0',
+        mode: INSERT_MODE.REPLACE
+      },
+      error: {}
+    });
+    expect(result).toEqual({
+      articles: {
+        0: {
+          isLoading: false,
+          mode: INSERT_MODE.REPLACE,
+          meta: {},
+          result: []
+        }
+      }
+    });
+  });
 });
